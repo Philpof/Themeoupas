@@ -20,19 +20,23 @@ get_header()
 <div class="container headercontainer">
   <div class="row mx-auto mb-0">
     <div class="col-sm imgleft second"><img class="imgheader" src="<?php bloginfo('template_directory'); ?>/img/phone.png" alt="phone">
+      <?php get_template_part( 'newsletter' ); ?>
     </div>
+
     <div class="col-sm first headerarticle">
 
 <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
       <h1 class="headertitle pb-5"><?php the_title(); ?></h1>
+
+      <?php the_post_thumbnail(); ?>
       <p><span id="h1span" class="text-white">Publié le <?php the_time( get_option( 'date_format' ) ); ?></span><br>
         <span> par <?php the_author(); ?> • <?php comments_number(); ?></span></p>
 
       <div class="headertext py-5 text-white">
         <a class="headerresp"><?php the_content(); ?></a>
       </div>
-      <?php the_excerpt(); ?>
+      <p>Un extrait : <?php the_excerpt(); ?></p>
   		<p>
         <a href="<?php the_permalink(); ?>" class="post__link">Lire la suite</a>
       </p>
