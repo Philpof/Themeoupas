@@ -34,14 +34,13 @@ get_header()
         <span> par <?php the_author(); ?> • <?php comments_number(); ?></span></p>
 
       <div class="headertext py-5 text-white">
-        <a class="headerresp"><?php the_content(); ?></a>
+        <a class="headerresp"><?php the_excerpt(); ?>></a>
       </div>
-      <p>Un extrait : <?php the_excerpt(); ?></p>
   		<p>
         <a href="<?php the_permalink(); ?>" class="post__link">Lire la suite</a>
       </p>
       <p>Dans la catégorie <?php the_category(); ?></p>
-      <p>Avec les étiquettes <?php the_tags(); ?></p>
+      <p><?php the_tags(); ?></p>
 
 
 <?php endwhile; endif; ?>
